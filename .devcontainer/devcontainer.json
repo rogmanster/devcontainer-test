@@ -1,0 +1,58 @@
+{
+  "name": "dbt-dev-env",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "extensions.verifySignature": false,
+        "python.interpreter.infoVisibility": "always",
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "dbt.dbtPythonPathOverride": "/usr/local/bin/python",
+        "files.associations": {
+          "*.sql": "jinja-sql",
+          "*.md": "jinja-md"
+        },
+        "[yaml]": {
+          "editor.defaultFormatter": "redhat.vscode-yaml",
+          "editor.formatOnSave": true
+        },
+        "yaml.schemas": {
+          "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/dbt_yml_files.json": [
+            "/**/*.yml",
+            "!profiles.yml",
+            "!dbt_project.yml",
+            "!packages.yml",
+            "!selectors.yml",
+            "!profile_template.yml"
+          ],
+          "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/dbt_project.json": [
+            "dbt_project.yml"
+          ],
+          "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/selectors.json": [
+            "selectors.yml"
+          ],
+          "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/packages.json": [
+            "packages.yml"
+          ]
+        }
+      },
+      "extensions": [
+        "innoverio.vscode-dbt-power-user",
+        "eamodio.gitlens",
+        "samuelcolvin.jinjahtml",
+        "oderwat.indent-rainbow",
+        "redhat.vscode-yaml",
+        "mechatroner.rainbow-csv",
+        "usernamehw.errorlens",
+        "snowflake.snowflake-vsc",
+        "humao.rest-client"
+      ]
+    }
+  },
+  "initializeCommand": "echo 'DBT Dev Container is running...'",
+  "privileged": true
+}
