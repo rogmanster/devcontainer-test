@@ -1,0 +1,7 @@
+dbt-core
+dbt-snowflake
+snowflake-connector-python[pandas]
+snowflake-snowpark-python[pandas]
+snowflake-ml-python
+azure-keyvault-secrets
+azure-mgmt-resource
